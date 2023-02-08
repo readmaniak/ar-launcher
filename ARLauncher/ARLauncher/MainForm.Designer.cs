@@ -37,7 +37,7 @@
             this.tbLogin = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.lblBackToLogIn = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
             this.tlpMainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,20 +54,19 @@
             this.tlpMainPanel.Controls.Add(this.tbLogin, 1, 1);
             this.tlpMainPanel.Controls.Add(this.tbPassword, 1, 2);
             this.tlpMainPanel.Controls.Add(this.lblBackToLogIn, 0, 5);
-            this.tlpMainPanel.Controls.Add(this.button1, 0, 6);
+            this.tlpMainPanel.Controls.Add(this.btnOk, 0, 6);
             this.tlpMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMainPanel.Location = new System.Drawing.Point(0, 0);
             this.tlpMainPanel.Name = "tlpMainPanel";
-            this.tlpMainPanel.RowCount = 8;
+            this.tlpMainPanel.RowCount = 7;
             this.tlpMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
             this.tlpMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMainPanel.Size = new System.Drawing.Size(417, 297);
+            this.tlpMainPanel.Size = new System.Drawing.Size(417, 271);
             this.tlpMainPanel.TabIndex = 0;
             // 
             // lblCaption
@@ -98,9 +97,9 @@
             this.lblPassword.Location = new System.Drawing.Point(8, 114);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(8);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(70, 20);
+            this.lblPassword.Size = new System.Drawing.Size(91, 20);
             this.lblPassword.TabIndex = 0;
-            this.lblPassword.Text = "Password";
+            this.lblPassword.Text = "Password (?)";
             // 
             // lblForgotPassword
             // 
@@ -114,6 +113,7 @@
             this.lblForgotPassword.TabIndex = 1;
             this.lblForgotPassword.TabStop = true;
             this.lblForgotPassword.Text = "Forgot login or password?";
+            this.lblForgotPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblForgotPassword_LinkClicked);
             // 
             // lblCreateAccount
             // 
@@ -127,26 +127,27 @@
             this.lblCreateAccount.TabIndex = 1;
             this.lblCreateAccount.TabStop = true;
             this.lblCreateAccount.Text = "Create an account";
+            this.lblCreateAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblCreateAccount_LinkClicked);
             // 
             // tbLogin
             // 
             this.tbLogin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbLogin.Location = new System.Drawing.Point(94, 71);
+            this.tbLogin.Location = new System.Drawing.Point(115, 71);
             this.tbLogin.Margin = new System.Windows.Forms.Padding(8);
             this.tbLogin.Name = "tbLogin";
-            this.tbLogin.Size = new System.Drawing.Size(315, 27);
+            this.tbLogin.Size = new System.Drawing.Size(294, 27);
             this.tbLogin.TabIndex = 3;
             // 
             // tbPassword
             // 
             this.tbPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPassword.Location = new System.Drawing.Point(94, 114);
+            this.tbPassword.Location = new System.Drawing.Point(115, 114);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(8);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(315, 27);
+            this.tbPassword.Size = new System.Drawing.Size(294, 27);
             this.tbPassword.TabIndex = 3;
             // 
             // lblBackToLogIn
@@ -157,30 +158,35 @@
             this.lblBackToLogIn.Location = new System.Drawing.Point(138, 229);
             this.lblBackToLogIn.Margin = new System.Windows.Forms.Padding(8);
             this.lblBackToLogIn.Name = "lblBackToLogIn";
-            this.lblBackToLogIn.Size = new System.Drawing.Size(141, 20);
+            this.lblBackToLogIn.Size = new System.Drawing.Size(141, 1);
             this.lblBackToLogIn.TabIndex = 1;
             this.lblBackToLogIn.TabStop = true;
             this.lblBackToLogIn.Text = "Back to Log In page";
+            this.lblBackToLogIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblBackToLogIn_LinkClicked);
             // 
-            // button1
+            // btnOk
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tlpMainPanel.SetColumnSpan(this.button1, 2);
-            this.button1.Location = new System.Drawing.Point(147, 260);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 29);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tlpMainPanel.SetColumnSpan(this.btnOk, 2);
+            this.btnOk.Location = new System.Drawing.Point(147, 235);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(8);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(123, 28);
+            this.btnOk.TabIndex = 2;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // MainForm
             // 
+            this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(417, 297);
+            this.ClientSize = new System.Drawing.Size(417, 271);
             this.Controls.Add(this.tlpMainPanel);
             this.Name = "MainForm";
             this.Text = "ARLauncher";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.tlpMainPanel.ResumeLayout(false);
             this.tlpMainPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -195,7 +201,7 @@
         private Label lblPassword;
         private LinkLabel lblForgotPassword;
         private LinkLabel lblCreateAccount;
-        private Button button1;
+        private Button btnOk;
         private TextBox tbLogin;
         private TextBox tbPassword;
         private LinkLabel lblBackToLogIn;

@@ -5,9 +5,10 @@ namespace ARLauncher
 {
     internal static class SteamConnector
     {
-        public static async Task<string> GetSteamTicket()
+        public static void Init() => SteamClient.Init(480);
+        
+        public static async Task<string> GetSteamTicketAsync()
         {
-            SteamClient.Init(480);
             var ticket = await SteamUser.GetAuthSessionTicketAsync();
             if (ticket == null)
             {

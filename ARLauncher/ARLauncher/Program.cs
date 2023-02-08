@@ -2,6 +2,9 @@ namespace ARLauncher
 {
     internal static class Program
     {
+        private const string JsonConfig = "AtlasReactorConfig.json";
+
+        public static string JsonConfigFullPath => Path.Combine(Environment.CurrentDirectory, JsonConfig);
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
